@@ -66,7 +66,7 @@
  <a href="https://github.com/Astro-botto"><img src="https://github.com/Astro-botto.png?size=100" width="100" height="100"></a> | [![AMRIT](https://github.com/LeviBot117.png?size=100)](https://github.com/LeviBot117) 
 ---|---
 [Workers]](https://github.com/Astro-botto)  | [Cory](https://github.com/LeviBot117)
-Owner of ASUS | Contributor |
+Worker | Owner of ASUS |
 
  # 🍂𝐃𝐈𝐒𝐂𝐋𝐀𝐈𝐌𝐄𝐑
 
