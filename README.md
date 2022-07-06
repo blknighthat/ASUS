@@ -62,9 +62,9 @@
  WhatsApp-bot is free and open-source software licensed under the [GNU Affero General Public License v3.0](https://github.com/LuckyYam/WhatsApp-bot/blob/master/LICENSE).
  
  #Thanks To
- [Workers]](https://github.com/LeviBot117)  | [Amrit/Aizen](https://github.com/Astro-botto)
-Owner of Asus | Contributor |
-
+ 
+ <a href="https://github.com/LevibOT117"><img src="https://github.com/LeviBot117.png?size=100" width="100" height="100"></a> | [![AMRIT](https://github.com/Astro-botto.png?size=100)](https://github.com/Astro-botto) 
+---|---
 
  # 🍂𝐃𝐈𝐒𝐂𝐋𝐀𝐈𝐌𝐄𝐑
 
