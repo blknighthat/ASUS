@@ -1,6 +1,8 @@
 <!-- ![Just...]() -->
 
-<div align='center'>
+<p align="center">
+  <img src="https://github.com/Kryknz/Vlkyre/blob/%F0%9D%90%95%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%B2%F0%9D%90%AB%F0%9D%90%9E%F0%9F%93%A1%F0%9D%90%8F%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AD%F0%9D%90%A8%C2%AE/src/%E2%92%B8%D1%B6%F0%9D%96%86%F0%9D%96%91%F0%9D%90%A4%F0%9D%90%B2%F0%9D%96%97%F0%9D%96%8E%F0%9D%96%8A.gif" height="400px"/>
+</p>
 
 <h2> ASUS BOT </h2>
   
@@ -60,9 +62,9 @@
  # 🍂𝐃𝐈𝐒𝐂𝐋𝐀𝐈𝐌𝐄𝐑
 
 ```
-╔⧉༻ 🦋Ѷ𝖆𝖑𝐤𝐲𝖗𝖎𝖊
+╔⧉༻ 🦋Asus
 ║ We won't be responsible for any kind of ban due to this bot.
-║ Vlkyre was made for fun purpose and to make group management easier.
+║ Asus was made for fun purpose and to make group management easier.
 ║ It's your concern if you spam and gets your account banned.
 ║ Also, Forks won't be entertained.
 ║ If you fork this repo and edit plugins, it's your concern for further updates.
