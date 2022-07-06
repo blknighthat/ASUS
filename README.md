@@ -3,8 +3,6 @@
 <p align="center">
   <img src="https://github.com/Kryknz/Vlkyre/blob/%F0%9D%90%95%F0%9D%90%A5%F0%9D%90%A4%F0%9D%90%B2%F0%9D%90%AB%F0%9D%90%9E%F0%9F%93%A1%F0%9D%90%8F%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%AD%F0%9D%90%A8%C2%AE/src/%E2%92%B8%D1%B6%F0%9D%96%86%F0%9D%96%91%F0%9D%90%A4%F0%9D%90%B2%F0%9D%96%97%F0%9D%96%8E%F0%9D%96%8A.gif" height="400px"/>
 </p>
-
-<h2> ASUS BOT </h2>
   
 <a href='https://github.com/LuckyYam/Whatsapp-bot/releases'>
   
