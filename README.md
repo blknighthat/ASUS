@@ -2,7 +2,7 @@
 
 <div align='center'>
 
-<h2> WhatsApp-bot </h2>
+<h2> ASUS BOT </h2>
   
 <a href='https://github.com/LuckyYam/Whatsapp-bot/releases'>
   
@@ -56,3 +56,17 @@
  ## 🎐 License
 
  WhatsApp-bot is free and open-source software licensed under the [GNU Affero General Public License v3.0](https://github.com/LuckyYam/WhatsApp-bot/blob/master/LICENSE).
+
+ # 🍂𝐃𝐈𝐒𝐂𝐋𝐀𝐈𝐌𝐄𝐑
+
+```
+╔⧉༻ 🦋Ѷ𝖆𝖑𝐤𝐲𝖗𝖎𝖊
+║ We won't be responsible for any kind of ban due to this bot.
+║ Vlkyre was made for fun purpose and to make group management easier.
+║ It's your concern if you spam and gets your account banned.
+║ Also, Forks won't be entertained.
+║ If you fork this repo and edit plugins, it's your concern for further updates.
+║ Forking Repo is fine. But if you edit something we will not provide any help.
+║ In short, Fork At Your Own Risk.
+╚════════════╝
+```
