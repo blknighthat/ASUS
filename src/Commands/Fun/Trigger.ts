@@ -3,6 +3,7 @@ import { IArgs } from '../../Types'
 import Canvas from "canvas";
 import GIFEncoder from "gifencoder";
 import { Sticker } from "wa-sticker-formatter";
+import { MessageType, Mimetype } from "@adiwajshing/baileys";
 // import { MessageType, Mimetype } from '@adiwajshing/baileys'
 
 @Command( "trigger", {
@@ -51,12 +52,15 @@ export default class extends BaseCommand {
       return GIF.out.getData();
     };
     try {
-      const image = await M.downloadMediaMessage(M.message.message as proto.IMessage)
-        else if (M.quoted && M.quoted.hasSupportedMediaMessage) buffer = await M.downloadMediaMessage(M.quoted.message)
-        ? this.client.profilePictureUrl(M.quoted.sender)
+      const image = await (M.WAMessage?.message?.imageMessage
+        ? this.client.downloadMediaMessage(M.WAMessage)
+        : M.quoted?.message?.message?.imageMessage
+        ? this.client.downloadMediaMessage(M.quoted.message)
+        : M.quoted?.sender
+        ? this.client.getProfilePicture(M.quoted.sender)
         : M.mentioned
-        ? this.client.profilePictureUrl(M.mentioned[0])
-        : this.client.profilePictureUrl(M.sender.jid);
+        ? this.client.getProfilePicture(M.mentioned[0])
+        : this.client.getProfilePicture(M.sender.jid));
       const sticker = new Sticker(await getImage(image), {
         pack: `Triggered`,
         author: M.sender.username || `Chitoge`,
@@ -64,8 +68,11 @@ export default class extends BaseCommand {
         categories: ["💢"],
       });
       if (!sticker) return void M.reply(`I couldn't find an image to trigger.`);
-      return void (await M.reply(await sticker.build(), 'sticker')
-      );
+      return void (await M.reply(
+        await sticker.build(),
+        MessageType.sticker,
+        Mimetype.webp
+      ));
     } catch (err) {
       console.log(err);
       M.reply(`Couldn't fetch the required Image.\n*Error* : ${err}`);

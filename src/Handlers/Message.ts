@@ -11,7 +11,7 @@ export class MessageHandler {
     public handleMessage = async (M: Message): Promise<void> => {
         const { prefix } = this.client.config
         const args = M.content.split(' ')
-        const title = M.chat === 'group' ? M.groupMetadata?.subject || 'Group' : 'DM'
+        const title = M.chat === 'dm' ? 'DM' : 'Group'
         await this.moderate(M)
         if (!args[0] || !args[0].startsWith(prefix))
             return void this.client.log(
@@ -22,7 +22,7 @@ export class MessageHandler {
         this.client.log(
             `${chalk.cyanBright(`Command ${args[0]}[${args.length - 1}]`)} from ${chalk.yellowBright(
                 M.sender.username
-            )} in ${chalk.blueBright(`${title}`)}`
+            )} in ${chalk.blueBright(`${title} [${M.from}]`)}`
         )
         const { banned, tag } = await this.client.DB.getUser(M.sender.jid)
         if (banned) return void M.reply('You are banned from using commands')
@@ -68,7 +68,7 @@ export class MessageHandler {
     private moderate = async (M: Message): Promise<void> => {
         if (M.chat !== 'group') return void null
         const { mods } = await this.client.DB.getGroup(M.from)
-        const isAdmin = M.groupMetadata?.admins?.includes(this.client.correctJid(this.client.user.id))
+        const isAdmin = await this.client.isAdmin({ group: M.from, jid: this.client.correctJid(this.client.user.id) })
         if (!mods || M.sender.isAdmin || !isAdmin) return void null
         const urls = this.client.utils.extractUrls(M.content)
         if (urls.length > 0) {
@@ -81,7 +81,7 @@ export class MessageHandler {
                         this.client.log(
                             `${chalk.blueBright('MOD')} ${chalk.green('Group Invite')} by ${chalk.yellow(
                                 M.sender.username
-                            )} in ${chalk.cyanBright(M.groupMetadata?.subject || 'Group')}`
+                            )} in ${chalk.cyanBright(`Group [${M.from}]`)}`
                         )
                         return void (await this.client.groupParticipantsUpdate(M.from, [M.sender.jid], 'remove'))
                     }

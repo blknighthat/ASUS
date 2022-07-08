@@ -1,13 +1,6 @@
-import {
-    proto,
-    MessageType,
-    MediaType,
-    AnyMessageContent,
-    downloadContentFromMessage,
-    delay
-} from '@adiwajshing/baileys'
+import { proto, MessageType, MediaType, AnyMessageContent, downloadContentFromMessage } from '@adiwajshing/baileys'
 import { Client } from '.'
-import { ISender, DownloadableMessage, IGroup } from '../Types'
+import { ISender, DownloadableMessage } from '../Types'
 
 export class Message {
     constructor(private M: proto.IWebMessageInfo, private client: Client) {
@@ -107,20 +100,11 @@ export class Message {
 
     public simplify = async (): Promise<Message> => {
         if (this.chat === 'dm') return this
-        await delay(1500)
-        return await this.client
-            .groupMetadata(this.from)
-            .then((res) => {
-                const result: IGroup = res
-                result.admins = result.participants
-                    .filter((x) => x.admin !== null && x.admin !== undefined)
-                    .map((x) => x.id)
-                this.groupMetadata = result
-                this.sender.isAdmin = result.admins.includes(this.sender.jid)
-                if (this.quoted) this.quoted.sender.isAdmin = result.admins.includes(this.quoted.sender.jid)
-                return this
-            })
-            .catch(() => this)
+        const isAdmin = await this.client.isAdmin({ group: this.from, jid: this.sender.jid })
+        this.sender.isAdmin = isAdmin
+        if (this.quoted)
+            this.quoted.sender.isAdmin = await this.client.isAdmin({ group: this.from, jid: this.quoted.sender.jid })
+        return this
     }
 
     get stubType(): proto.WebMessageInfo.WebMessageInfoStubType | undefined | null {
@@ -218,5 +202,4 @@ export class Message {
     }
     public emojis: string[]
     public urls: string[]
-    public groupMetadata?: IGroup
 }

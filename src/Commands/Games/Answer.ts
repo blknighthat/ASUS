@@ -1,0 +1,61 @@
+import { BaseCommand, Command, Message } from '../../Structures'
+import { IArgs } from '../../Types'
+
+@Command( "answer", {
+    description: `Answer the last quiz sent by the bot.`,
+    aliases: ["ans"],
+    category: "fun",
+    usage: `answer [your_answer]`,
+    cooldown: 5,
+    exp: 10,
+    dm: false
+})
+export default class extends BaseCommand {
+    public override execute = async (M: Message, args: IArgs): Promise<void> =>  {
+    if (M.from !== "120363025428467931@g.us")
+      return void M.reply(
+        `You can't use this command here. Use ${this.client.config.prefix}support to get the quiz group link.`
+      );
+    if (await !(await this.client.getGroupData(M.from)).quizResponse.ongoing)
+      return void M.reply(
+        `There aren't any quiz for you to answer. Use *${this.client.config.prefix}quiz* to start a quiz.`
+      );
+    if (!joined) return void M.reply(`Provide the option number, Baka!`);
+    const ans: any = joined.split("  ")[0];
+    if (isNaN(ans)) return void M.reply(`The option type must be a number.`);
+    if (ans > 5 || ans < 1) {
+      return void M.reply(`Invalid option.`);
+    }
+    const id = await (await this.client.getGroupData(M.from)).quizResponse.id;
+    const check = await (await this.client.getUser(M.sender.jid)).lastQuizId;
+    const exp = Math.floor(Math.random() * 100);
+    if (id === check) {
+      return void M.reply(
+        `You have recently attempted to answer this question, give it a break.`
+      );
+    }
+    const correctAns = await (
+      await this.client.getGroupData(M.from)
+    ).quizResponse.answer;
+    if (ans == correctAns) {
+      await this.client.DB.group.updateOne(
+        { jid: M.from },
+        { $set: { "quizResponse.ongoing": false } }
+      );
+      await this.client.DB.user.updateOne(
+        { jid: M.sender.jid },
+        { $inc: { quizPoints: 1 } }
+      );
+      await this.client.setXp(M.sender.jid, exp, 40);
+      return void M.reply(
+        `🎉 Correct answer. You have earned *${exp} experience*.`
+      );
+    } else if (ans !== correctAns) {
+      await this.client.DB.user.updateOne(
+        { jid: M.sender.jid },
+        { $set: { lastQuizId: id } }
+      );
+      return void M.reply(`✖️ Wrong guess.`);
+    }
+  };
+}

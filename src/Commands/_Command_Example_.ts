@@ -1,5 +1,5 @@
-import { BaseCommand, Command, Message } from '../Structures'
-import { IArgs } from '../Types'
+import { BaseCommand, Command, Message } from '../../Structures'
+import { IArgs } from '../../Types'
 
 @Command('command_name', {
     description: 'Description of the command',
