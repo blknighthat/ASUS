@@ -1,8 +1,12 @@
 <!-- ![Just...]() -->
 
-<div align='center'>
-
-<h2> WhatsApp-bot </h2>
+<div align="center">
+    <img
+        src="https://readme-typing-svg.herokuapp.com?font=Supermercado+One&size=30&duration=4997&color=B8212C&background=FF673200&center=true&vCenter=true&lines=HI+I+AM+ASUS;A+WHATSAPP+BOT+ON+BAILEYS+MULTI-DEVICE"
+            alt="Typing SVG"
+        />
+    </a>
+</p>
   
 <a href='https://github.com/LuckyYam/Whatsapp-bot/releases'>
   
@@ -56,3 +60,24 @@
  ## 🎐 License
 
  WhatsApp-bot is free and open-source software licensed under the [GNU Affero General Public License v3.0](https://github.com/LuckyYam/WhatsApp-bot/blob/master/LICENSE).
+ 
+ #Thanks To
+ 
+ <a href="https://github.com/Astro-botto"><img src="https://github.com/Astro-botto.png?size=100" width="100" height="100"></a> | [![AMRIT](https://github.com/LeviBot117.png?size=100)](https://github.com/LeviBot117) 
+---|---
+[Workers]](https://github.com/Astro-botto)  | [Cory](https://github.com/LeviBot117)
+Worker | Owner of ASUS |
+
+ # 🍂𝐃𝐈𝐒𝐂𝐋𝐀𝐈𝐌𝐄𝐑
+
+```
+╔⧉༻ 🦋Asus
+║ We won't be responsible for any kind of ban due to this bot.
+║ Asus was made for fun purpose and to make group management easier.
+║ It's your concern if you spam and gets your account banned.
+║ Also, Forks won't be entertained.
+║ If you fork this repo and edit plugins, it's your concern for further updates.
+║ Forking Repo is fine. But if you edit something we will not provide any help.
+║ In short, Fork At Your Own Risk.
+╚════════════╝
+```
